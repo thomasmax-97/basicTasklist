@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function GuzzleHttp\Promise\task;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tasks');
+});
+
+Route::post('/task', function (Request $request) {
+    //
+});
+
+Route::delete('tastks/{id}', function ($id) {
+    //
 });
