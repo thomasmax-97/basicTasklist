@@ -6,12 +6,11 @@
 
 <div class="panel-body">
     <!-- Display Validation Errors -->
-
+    @include('common.errors')
 
     <!-- New Task Form -->
-    <form action="/task" method="POST" class="form-horizontal">
+    <form action="{{ url('task') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
-
         <!-- Task Name -->
         <div class="form-group">
             <label for="task" class="col-sm-3 control-label">Task</label>

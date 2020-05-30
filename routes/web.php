@@ -19,10 +19,16 @@ Route::get('/', function () {
     return view('tasks');
 });
 
-Route::post('/task', function (Request $request) {
+Route::post('/task', 'TasksController@store');
+
+Route::delete('tasks/{id}', function ($id) {
     //
 });
 
-Route::delete('tastks/{id}', function ($id) {
-    //
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
