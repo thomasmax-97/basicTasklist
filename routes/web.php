@@ -1,5 +1,6 @@
 <?php
 
+use App\Task;
 use Illuminate\Support\Facades\Route;
 
 use function GuzzleHttp\Promise\task;
@@ -17,9 +18,12 @@ use function GuzzleHttp\Promise\task;
 
 Route::get('/', function () {
     return view('tasks');
+
+    $task = Task::orderBy('created_at', 'asc')->get();
 });
 
 Route::post('/task', 'TasksController@store');
+
 
 Route::delete('tasks/{id}', function ($id) {
     //
