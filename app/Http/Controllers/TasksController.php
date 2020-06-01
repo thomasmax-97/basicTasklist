@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Dotenv\Validator;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +25,6 @@ class TasksController extends Controller
                 ->withErrors($validate)
                 ->withInput();
         }
-
         $task = new Task;
         $task->name = $request->name;
         $task->save();
