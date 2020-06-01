@@ -17,16 +17,19 @@ use function GuzzleHttp\Promise\task;
 */
 
 Route::get('/', function () {
-    return view('tasks');
-
     $task = Task::orderBy('created_at', 'asc')->get();
+    return view('tasks', [
+        'tasks' => $task
+    ]);
 });
 
 Route::post('/task', 'TasksController@store');
 
 
-Route::delete('tasks/{id}', function ($id) {
-    //
+Route::delete('task/{id}', function (Task $task) {
+    $task->delete();
+
+    return redirect('/');
 });
 
 Auth::routes();
