@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::post('/task', 'TasksController@store');
 
 
-Route::delete('task/{id}', function (Task $task) {
+Route::delete('task/{task}', function (Task $task) {
     $task->delete();
 
     return redirect('/');
